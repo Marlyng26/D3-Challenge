@@ -11,7 +11,7 @@ function xScale(data, XAxis, chartWidth) {
     return xLinearScale;
 }
 // Function used for updating xAxis 
-function renderXAxes(newXScale, xAxis) {
+function displayXAxes(newXScale, xAxis) {
     var bottomAxis = d3.axisBottom(newXScale);
     xAxis.transition()
         .duration(1000)
@@ -28,7 +28,7 @@ function yScale(data, YAxis, chartHeight) {
     return yLinearScale;
 }
 // Function used for updating yAxis 
-function renderYAxes(newYScale, yAxis) {
+function displayYAxes(newYScale, yAxis) {
     var leftAxis = d3.axisLeft(newYScale);
     yAxis.transition()
         .duration(1000)
@@ -36,7 +36,7 @@ function renderYAxes(newYScale, yAxis) {
     return yAxis;
 }
 // Function used for updating circles group 
-function renderCircles(circlesGroup, newXScale, newYScale, XAxis, YAxis) {
+function displayCircles(circlesGroup, newXScale, newYScale, XAxis, YAxis) {
     circlesGroup.transition()
         .duration(1000)
         .attr("cx", d => newXScale(d[XAxis]))
@@ -44,7 +44,7 @@ function renderCircles(circlesGroup, newXScale, newYScale, XAxis, YAxis) {
     return circlesGroup;
 }
 // Function used for updating text in circles group with a transition to new text.
-function renderText(circletextGroup, newXScale, newYScale, XAxis, YAxis) {
+function displayText(circletextGroup, newXScale, newYScale, XAxis, YAxis) {
     circletextGroup.transition()
         .duration(1000)
         .attr("x", d => newXScale(d[XAxis]))
@@ -227,7 +227,7 @@ function makeResponsive() {
         xLabelsGroup.selectAll("text")
             .on("click", function () {
                 // Grab selected label.
-                chosenXAxis = d3.select(this).attr("value");
+                XAxis = d3.select(this).attr("value");
                 // Update xLinearScale.
                 xLinearScale = xScale(demoData, XAxis, chartWidth);
                 // Render xAxis.
