@@ -233,7 +233,7 @@ function makeResponsive() {
                 // Render xAxis.
                 xAxis = renderXAxes(xLinearScale, xAxis);
                 // Switch active/inactive labels.
-                if (chosenXAxis === "poverty") {
+                if (XAxis === "poverty") {
                     povertyLabel
                         .classed("active", true)
                         .classed("inactive", false);
@@ -243,7 +243,7 @@ function makeResponsive() {
                     incomeLabel
                         .classed("active", false)
                         .classed("inactive", true);
-                } else if (chosenXAxis === "age") {
+                } else if (XAxis === "age") {
                     povertyLabel
                         .classed("active", false)
                         .classed("inactive", true);
@@ -265,11 +265,11 @@ function makeResponsive() {
                         .classed("inactive", false);
                 }
                 // Update circles with new x values.
-                circle = renderCircles(circlesGroup, xLinearScale, yLinearScale, XAxis, YAxis);
+                circle = displayCircles(circlesGroup, xLinearScale, yLinearScale, XAxis, YAxis);
                 // Update tool tips with new info.
                 circlesGroup = updateToolTip(XAxis, YAxis, circle, circleText);
                 // Update circles text with new values.
-                circleText = renderText(circleText, xLinearScale, yLinearScale, XAxis, YAxis);
+                circleText = displayText(circleText, xLinearScale, yLinearScale, XAxis, YAxis);
             });
         // Y Labels event listener.
         yLabelsGroup.selectAll("text")
@@ -313,9 +313,9 @@ function makeResponsive() {
                         .classed("inactive", false);
                 }
                 // Update circles with new y values.
-                circle = renderCircles(circlesGroup, xLinearScale, yLinearScale, XAxis, YAxis);
+                circle = displayCircles(circlesGroup, xLinearScale, yLinearScale, XAxis, YAxis);
                 // Update circles text with new values.
-                circleText = renderText(circleText, xLinearScale, yLinearScale, XAxis, YAxis);
+                circleText = displayText(circleText, xLinearScale, yLinearScale, XAxis, YAxis);
                 // Update tool tips with new info.
                 circlesGroup = updateToolTip(XAxis, YAxis, circle, circleText);
             });
