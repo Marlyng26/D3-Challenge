@@ -43,7 +43,7 @@ function displayCircles(circlesGroup, newXScale, newYScale, XAxis, YAxis) {
         .attr("cy", d => newYScale(d[YAxis]));
     return circlesGroup;
 }
-// Function used for updating text in circles group with a transition to new text.
+// Function used for updating text in circles group 
 function displayText(circletextGroup, newXScale, newYScale, XAxis, YAxis) {
     circletextGroup.transition()
         .duration(1000)
@@ -112,8 +112,8 @@ function makeResponsive() {
         svgArea.remove();
     }
     //SVG params.
-    var svgHeight = window.innerHeight / 1.2;
-    var svgWidth = window.innerWidth / 1.7;
+    var svgHeight = window.innerHeight / 2.2;
+    var svgWidth = window.innerWidth / 2.7;
     // Margins.
     var margin = {
         top: 50,
@@ -190,13 +190,13 @@ function makeResponsive() {
         var ageLabel = xLabelsGroup.append("text")
             .attr("x", 0)
             .attr("y", 40)
-            .attr("value", "age") // value to grab for event listener
+            .attr("value", "age")
             .classed("inactive", true)
             .text("Age (Median)");
         var incomeLabel = xLabelsGroup.append("text")
             .attr("x", 0)
             .attr("y", 60)
-            .attr("value", "income") // value to grab for event listener
+            .attr("value", "income") 
             .classed("inactive", true)
             .text("Household Income (Median)");
         // Add y labels group and labels.
@@ -325,5 +325,4 @@ function makeResponsive() {
 }
 makeResponsive();
 // Event listener for window resize.
-// When the browser window is resized, makeResponsive() is called.
 d3.select(window).on("resize", makeResponsive);
