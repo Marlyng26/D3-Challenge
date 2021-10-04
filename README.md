@@ -60,5 +60,4 @@ While the ticks on the axes allow us to infer approximate values for each circle
 
 
 
-For this analysis, careful attention to detail was necessary in D3 and html lanuages. Analyst needed to be adaptible to reach desierbale results in code. 
 
